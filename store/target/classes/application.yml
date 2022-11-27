@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lenovo_boot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: Qq2241618207
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+      max-wait: 60000
+      min-idle: 1
+      validation-query: select 1
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+mybatis-plus:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+auth:
+  ignoreUrls:
+    - /user/login
+    - /user/register
+    - /cart/add
+    - /computer/selectPage
+    - /computer/selectById
+    - /user/selectById
+    - /cart/add
+    - /cart/selectPage
+    - /cart/deleteById
+    - /cart/selectById
+    - /buy/add
+    - /buy/selectPage
+    - /buy/deleteById
+    - /buy/selectById
+    - /config/selectPage
+    - /comment/add
+    - /comment/selectPage
+    - /after/add
+    - /after/selectPage
+    - /serve/selectPage
+

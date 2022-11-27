@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenovo.store.mapper.ServeMapper">
+    <select id="queryList" resultType="serveVO">
+        select a.*
+        from serve a
+        <where>
+            <if test='searchWord != null and searchWord != ""'>
+                a.serve_name like concat(#{searchWord})
+            </if>
+        </where>
+        order by a.id
+    </select>
+</mapper>

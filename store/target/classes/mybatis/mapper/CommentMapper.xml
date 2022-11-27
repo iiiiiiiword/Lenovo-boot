@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenovo.store.mapper.CommentMapper">
+    <select id="queryList" resultType="commentVO">
+        select a.*
+        from comment a
+        <where>
+            <if test='searchWord != null and searchWord != ""'>
+                a.computer_id like concat(#{searchWord})
+            </if>
+        </where>
+        order by a.computer_id
+    </select>
+</mapper>

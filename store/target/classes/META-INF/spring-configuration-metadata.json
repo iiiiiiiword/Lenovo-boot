@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "auth",
+      "type": "com.lenovo.store.config.AuthrizationProperties",
+      "sourceType": "com.lenovo.store.config.AuthrizationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "auth.ignore-urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.lenovo.store.config.AuthrizationProperties"
+    }
+  ],
+  "hints": []
+}

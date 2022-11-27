@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenovo.store.mapper.ComputerMapper">
+    <select id="queryList" resultType="computerVO">
+        select a.*
+        from computer a
+        <where>
+            <if test='searchWord != null and searchWord != ""'>
+                or a.computer_type like concat(#{searchWord})
+            </if>
+            <if test='searchWord != null and searchWord != ""'>
+                or a.computer_name like concat('%',#{searchWord},'%')
+            </if>
+        </where>
+        order by a.computer_id
+    </select>
+</mapper>
