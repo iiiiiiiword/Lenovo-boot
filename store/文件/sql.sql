@@ -3,7 +3,7 @@ use lenovo_boot;
 
 drop table if exists user;
 CREATE TABLE `user` (
-    `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
     `user_name` varchar(50) NOT NULL COMMENT '用户名',
     `pwd` varchar(50) NOT NULL COMMENT '密码',
     `sex` varchar(10) COMMENT '性别',
@@ -13,16 +13,18 @@ CREATE TABLE `user` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '用户表';
 insert into user(user_name,pwd) values ('admin','123456');
+
 drop table if exists cart;
 CREATE TABLE `cart` (
     `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
     `computer_id` bigint NOT NULL COMMENT '电脑id',
     `user_id` bigint NOT NULL COMMENT '用户id',
     `computer_name` varchar(100) NOT NULL COMMENT '电脑名称',
+    `computer_config` varchar(100) NOT NULL COMMENT '电脑配置',
     `computer_type` varchar(100) NOT NULL COMMENT '电脑品牌',
-    `computer_price` varchar(100) NOT NULL COMMENT '电脑价格',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '购物车表';
+
 drop table if exists computer;
 CREATE TABLE `computer` (
     `computer_id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -38,6 +40,8 @@ CREATE TABLE `buy` (
     `user_id` bigint NOT NULL COMMENT '用户id',
     `computer_id` bigint NOT NULL COMMENT '商品id',
     `computer_name` varchar(100) NOT NULL COMMENT '商品名称',
+    `computer_type` varchar(100) NOT NULL COMMENT '商品种类',
+    `computer_config` varchar(100) NOT NULL COMMENT '商品配置',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '购买记录';
 
@@ -56,6 +60,7 @@ CREATE TABLE `comment` (
     `computer_id` bigint NOT NULL COMMENT '商品id',
     `computer_name` varchar(100) NOT NULL COMMENT '商品名称',
     `computer_type` varchar(100) NOT NULL COMMENT '商品种类',
+    `computer_config` varchar(100) NOT NULL COMMENT '商品配置',
     `comment` varchar(500) NOT NULL COMMENT '商品评价',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '评价';
@@ -70,6 +75,7 @@ CREATE TABLE `after` (
     `computer_config` varchar(500) NOT NULL COMMENT '商品配置',
     `service` varchar(500) NOT NULL COMMENT '服务',
     `apply` varchar(500) NOT NULL COMMENT '申请原因',
+    `state` varchar(500) NOT NULL COMMENT '状态',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '售后';
 
@@ -80,5 +86,6 @@ CREATE TABLE `serve` (
     `serve_details` varchar(500) NOT NULL COMMENT '服务',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment '服务';
+
 
 
